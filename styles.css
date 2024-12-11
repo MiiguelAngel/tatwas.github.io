@@ -252,7 +252,7 @@ tbody tr:hover {
 }
 
 .last-container {
-  display: flex; /* Usar flexbox para alinear los elementos */
+  display: inline-flex; /* Usar flexbox para alinear los elementos */
   justify-content: center; /* Alinear los elementos al inicio */
   align-items: center; /* Alinear los elementos al inicio */
   gap: 1rem; /* Espacio entre los elementos */
@@ -325,7 +325,7 @@ tbody tr:hover {
 /*--------------------- widget------------------------*/
 
 .widget {
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
