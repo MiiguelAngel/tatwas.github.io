@@ -9,10 +9,16 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  font-size: 22 px; /* Cambia este valor para ajustar el tamaño del texto */
   position: relative; /* Para que el fondo se posicione correctamente */
   width: 100%;
   overflow-x: hidden;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  body {
+      font-size: 0.9rem; /* Reduce el tamaño de la fuente en pantallas pequeñas */
+  }
 }
 
 
@@ -20,18 +26,18 @@ body {
   display: flex; /* Usar flexbox para alinear los elementos en línea */
   justify-content: space-between; /* Espacio entre los elementos */
   align-items: flex-start; /* Alinear los elementos al inicio */
-  padding: 20px; /* Espaciado interno */
+  padding: 1.25rem; /* Espaciado interno */
 }
 
 .container {
   text-align: center; /* Asegura que el texto dentro del contenedor esté centrado */
-  max-width: 1000px; /* Ancho fijo de 800px */
+  max-width: 62.5rem; /* Ancho fijo de 50rem */
   margin: 0 auto; /* Centra el contenedor horizontalmente */
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
   flex-grow: 1; /* Asegura que el contenedor ocupe el espacio disponible */
-  padding-bottom: 80px; /* Espacio para que el footer no cubra el contenido */
+  padding-bottom: 5rem; /* Espacio para que el footer no cubra el contenido */
 }
 
 header {
@@ -41,20 +47,20 @@ header {
   width: 100%; /* El encabezado abarca todo el ancho */
   margin: 0 auto; /* Centra el encabezado horizontalmente */
   background-color: rgba(255, 255, 255, 0.8);
-  padding: 20px;
+  padding: 1.25rem;
   display: flex; /* Usar flexbox para alinear elementos */
   flex-direction: column; /* Cambia la dirección a columna */
   align-items: center; /* Centra los elementos horizontalmente */
 }
 
 .header-right {
-  max-height: 100px; /* Limita la altura máxima de la imagen */
+  max-height: 6.25rem; /* Limita la altura máxima de la imagen */
   width: auto; /* Mantiene la proporción de la imagen */
   margin: 0 auto; /* Centra horizontalmente si es necesario */
 }
 
 .header-content {
-  padding: 20px; /* Espaciado interno */
+  padding: 1.25rem; /* Espaciado interno */
   position: center; /* Para que el contenido esté sobre el fondo */
   width: 100%; /* El contenedor ocupa todo el ancho disponible */
   display: flex;
@@ -71,17 +77,17 @@ header h1 {
 
 header img {
   position: sticky;
-  height: 80px;
+  height: 5rem;
   width: auto;
   justify-content: flex-start;
-  /*margin-right: 100px;  /*Espacio entre la imagen y el título */
+  /*margin-right: 6.25rem;  /*Espacio entre la imagen y el título */
 }
 
 /* Estilo general para el contenedor principal */
 .tatwa-container {
   max-width: auto; /* Ancho máximo del contenedor */
   margin: 0 auto; /* Centrar el contenedor horizontalmente */
-  padding: 20px; /* Espaciado inerno */
+  padding: 1.25rem; /* Espaciado inerno */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
   background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco suave */
   border-radius: 10px; /* Bordes redondeados */
@@ -93,15 +99,15 @@ header img {
 
 .tatwa-info {
   flex: 2;
-  max-width: 800px; /* Establece un ancho máximo fijo */
+  max-width: 50rem; /* Establece un ancho máximo fijo */
   background-color: #ffffff;
-  padding: 20px;
-  padding-bottom: 40px; /* Espaciado adicional en la parte inferior */
+  padding: 1.25rem;
+  padding-bottom: 2.5rem; /* Espaciado adicional en la parte inferior */
   /*border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
   margin: 0 auto; /* Centra el contenedor horizontalmente */
 }
 
@@ -109,19 +115,19 @@ header img {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-width: 800px;
+  max-width: 50rem;
 }
 
 .next-tatwa {
   flex: 1;
   min-width: 300px;
   background-color: #ffffff;
-  padding: 20px;
+  padding: 1.25rem;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
 }
 
 .next-tatwa h2 {
@@ -242,8 +248,8 @@ tbody tr:hover {
   display: flex; /* Usar flexbox para alinear los elementos */
   justify-content: flex-start; /* Alinear los elementos al inicio */
   align-items: flex-start; /* Alinear los elementos al inicio */
-  gap: 20px; /* Espacio entre los elementos */
-  padding: 20px; /* Espaciado interno */
+  gap: 1.25rem; /* Espacio entre los elementos */
+  padding: 1.25rem; /* Espaciado interno */
 }
 
 /* Contenedor Principal */
@@ -252,32 +258,32 @@ tbody tr:hover {
   flex: 1;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 20px;
-  padding: 20px;
-  max-width: 1000px;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  max-width: 62.5rem;
   margin: 0 auto;
   padding-bottom: 200px; /* Espacio para que el footer no cubra el contenido */
 }
 
 /* General: Contenedor principal */
 .tatwa-info {
-  max-width: 800px; /* Igual al ancho principal */
+  max-width: 50rem; /* Igual al ancho principal */
   margin: 0 auto; /* Centra el contenedor */
-  padding: 20px;
+  padding: 1.25rem;
   background-color: #f9f9f9;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
 }
 
 /* Contenedor para Acciones y Siguiente Tatwa */
 .actions-container {
   display: flex;
   justify-content: space-between;
-  gap: 20px;
-  margin-top: 20px;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
 }
 
 /* Estilos para Acciones y Siguiente Tatwa */
@@ -286,7 +292,7 @@ tbody tr:hover {
   flex: 1; /* Ambos ocupan el 50% del ancho del contenedor */
   max-width: calc(50% - 10px); /* Ajusta considerando el gap */
   background-color: #fff;
-  padding: 20px;
+  padding: 1.25rem;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -312,11 +318,11 @@ tbody tr:hover {
 /* Estilo para el Widget */
 .widget {
   
-  top: 100px; /* Espacio desde la parte superior */
-  left: 20px; /* Espacio desde el lado izquierdo */
+  top: 6.25rem; /* Espacio desde la parte superior */
+  left: 1.25rem; /* Espacio desde el lado izquierdo */
   background: rgba(255, 255, 255, 0.8);/* Fondo suave */
   border-radius: 15px; /* Bordes redondeados */
-  padding: 20px;
+  padding: 1.25rem;
   width: 300px; /* Ancho fijo */
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
   font-family: Arial, sans-serif; /* Fuente legible */
@@ -390,9 +396,9 @@ tbody tr:hover {
 .slider {
   position: relative;
   background: #ffffff; /* Fondo blanco */
-  border-radius: 20px; /* Bordes redondeados */
+  border-radius: 1.25rem; /* Bordes redondeados */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-  padding: 40px 40px 0; /* Espaciado lateral y superior */
+  padding: 2.5rem 2.5rem 0; /* Espaciado lateral y superior */
   text-align: center;
   width: 100%; /* Un tamaño más compacto */
   height: auto; /* Altura moderada */
@@ -418,7 +424,7 @@ h2 {
 .slider-arrows {
   position: absolute;
   top: 10%; /* Colocamos las flechas en el tercio superior */
-  width: calc(100% - 80px); /* Ajuste del ancho para dejar espacio para las flechas */
+  width: calc(100% - 5rem); /* Ajuste del ancho para dejar espacio para las flechas */
   display: flex;
   justify-content: space-between;
   padding: 0; /* Sin padding */
@@ -453,7 +459,7 @@ h2 {
 #tatwa-schedule {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
+  margin-top: 1.25rem;
 }
 
 #tatwa-schedule th,
@@ -480,11 +486,11 @@ h2 {
   justify-content: space-between;
   align-items: center;
   
-  padding: 20px;
+  padding: 1.25rem;
   background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco suave */
   border-radius: 10px; /* Bordes redondeados para suavizar */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
-  margin: 20px 0;
+  margin: 1.25rem 0;
 }
 
 /* Estilo de cada subtatwa */
@@ -524,9 +530,9 @@ h2 {
 /* Estilo general para el contenedor de la línea de tiempo */
 #tatwa-timeline-container {
   width: 100%; /* Asegúrate de que el contenedor ocupe todo el ancho disponible */
-  max-width: 1000px; /* Ancho máximo para mantener el diseño centrado */
+  max-width: 62.5rem; /* Ancho máximo para mantener el diseño centrado */
   margin: 0 auto; /* Centra el contenedor horizontalmente */
-  padding: 20px; /* Espaciado interno */
+  padding: 1.25rem; /* Espaciado interno */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
   background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco suave */
   border-radius: 10px; /* Bordes redondeados */
