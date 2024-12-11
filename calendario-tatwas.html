@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horarios de los Tatwas</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="Assets\MCS logo 3.png">
+  <script src="tatwas.js"></script> <!-- Archivo donde está definida la variable tatwas -->
+  <script src="script.js"></script> <!-- Tu archivo script.js -->
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-right">
+                <img src="Assets/MCS logo 2.png" alt="Logo" class="logo">
+            </div>
+        </div>
+      </header>
+    
+
+  <div class="primary-menu-wrapper menu-wrapper">
+    <ul class="mixy-menu primary-menu menu-align-right">
+        <li class="menu-item">
+            <a href="tatwa-actual.html" class="menu-item-link">
+                <span class="menu_title">Tatwa Actual</span>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="calendario-tatwas.html" class="menu-item-link">
+                <span class="menu_title">Calendario de Tatwas</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div class="slider">
+    <div class="slider-content" id="sliderContent">tatwa actual</div>
+    <div class="slider-arrows">
+        <div class="arrow left" id="prevButton">&#10094;</div>
+        <div class="arrow right" id="nextButton">&#10095;</div>
+    </div>
+    <div class="slider-content">
+        <h2>Calendario de Tatwas</h2>
+        <table id="tatwa-schedule" style="width: 100%; border-collapse: collapse;">
+          <thead>
+            <tr>
+              <th>Hora</th>
+              <th>Tatwa</th>
+            </tr>
+          </thead>
+          <tbody id="schedule-list">
+            <!-- Las horas del día se llenarán dinámicamente -->
+          </tbody>
+        </table>
+      </div>
+</div>
+
+    
+    <footer>
+        <p>Creado por Miguel Ángel Niño Vargas</p>
+    </footer>
+</body>
+</html>

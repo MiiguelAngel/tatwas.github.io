@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horarios de los Tatwas</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="tatwas.js"></script> <!-- Archivo donde está definida la variable tatwas -->
+  <script src="script.js"></script> <!-- Archivo con las funciones de los Tatwas -->
+  <link rel="icon" type="image/png" href="Assets\MCS logo 3.png">
+</head>
+<body>
+  <!-- Encabezado -->
+  <header>
+    <div class="header-content">
+        <div class="header-right">
+            <img src="Assets/MCS logo 2.png" alt="Logo" class="logo">
+        </div>
+    </div>
+  </header>
+
+  <h1 class="tatwa-name">El tatwametro ó las vibraciones del Éter</h1>
+
+  <!-- Menú de navegación -->
+  <div class="primary-menu-wrapper menu-wrapper">
+    <ul class="mixy-menu primary-menu menu-align-right">
+      <li class="menu-item">
+        <a href="tatwa-actual.html" class="menu-item-link">
+          <span class="menu_title">Tatwas</span>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="calendario-tatwas.html" class="menu-item-link">
+          <span class="menu_title">Calendario de Tatwas</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="last-container">
+
+    <div class="main-container">
+
+      <div class="slider">
+        <div class="slider-content" id="sliderContent">Tatwa regente en este momento</div>
+        <div class="slider-arrows">
+            <div class="arrow left" id="prevButton">&#10094;</div>
+            <div class="arrow right" id="nextButton">&#10095;</div>
+        </div>
+        <div class="slider-content"></div>
+        <!-- Información del Tatwa Actual --> 
+        <section class="tatwa-info">
+        <div class="tatwa-details">
+          <p id="tatwa-name" class="tatwa-name-detail"></p>
+            <span id="tatwa-icon"></span> 
+            <span id="tatwa-name-text"></span>
+          <p id="tatwa-description" class="tatwa-description"></p>
+
+          <h4>Color que define el tatwa</h4>
+          <p id="tatwa-color" class="tatwa-color"></p>
+          <p id="tatwa-color_hex" class="tatwa-color_hex"></p>
+    
+          <!-- Contenedor flex para Acciones y Siguiente Tatwa -->
+          <div class="actions-container">
+            <div class="tatwa-actions">
+              <h3>Acciones bajo la Influencia del Tatwa</h3>
+              <p id="tatwa-actions"></p>
+              <br>
+              <h3>Acciones NO recomendadas bajo la Influencia del Tatwa</h3>
+              <p id="not-recommended-actions"></p>
+            </div>
+            <div class="next-tatwa">
+              <img id="tatwa-image" alt="Tatwa Image"/>
+            </div>
+          </div>
+        </div>  
+
+        <div class="timeline-container">
+          <div id="tatwa-timeline" class="timeline">
+            <!-- Los segmentos de subtatwas se generarán dinámicamente aquí -->
+          </div>
+        </div>      
+
+        <table id="tatwa-schedule">
+          <tbody id="schedule-list"></tbody>
+        </table>
+      </section>
+    </div>
+    </div>
+  
+     <!-- Widget del Clima -->
+     <div class="widget">
+      <h1 class="widget-title">🌞 Horario Solar en Bogotá</h1>
+      <div class="widget-content">
+          <div class="sun-info">
+              <div class="icon" id="first-light-icon">🌤️</div>
+              <div class="info">
+                  <h2>Primera Luz</h2>
+                  <p id="first-light">Cargando...</p>
+              </div>
+          </div>
+          <div class="sun-info">
+              <div class="icon" id="sunrise-icon">🌅</div>
+              <div class="info">
+                  <h2>Amanecer</h2>
+                  <p id="sunrise">Cargando...</p>
+              </div>
+          </div>
+          <div class="sun-info">
+              <div class="icon" id="sunset-icon">🌇</div>
+              <div class="info">
+                  <h2>Atardecer</h2>
+                  <p id="sunset">Cargando...</p>
+              </div>
+          </div>
+          <div class="sun-info">
+              <div class="icon" id="last-light-icon">🌙</div>
+                <div class="info">
+                    <h2>Última Luz</h2>
+                    <p id="last-light">Cargando...</p>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>  
+  </div>
+  <!-- Pie de página -->
+  <footer>
+    <p>Copyright © MANV. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    window.onload = function () {
+      displayCurrentTatwa(); // Mostrar información del Tatwa actual
+    };
+  </script>
+</body>
+</html>
