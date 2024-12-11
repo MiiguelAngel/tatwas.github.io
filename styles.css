@@ -15,13 +15,6 @@ body {
   flex-wrap: wrap;
 }
 
-@media (max-width: 768px) {
-  body {
-      font-size: 0.9rem; /* Reduce el tamaño de la fuente en pantallas pequeñas */
-  }
-}
-
-
 .first-container {
   display: flex; /* Usar flexbox para alinear los elementos en línea */
   justify-content: space-between; /* Espacio entre los elementos */
@@ -81,6 +74,20 @@ header img {
   width: auto;
   justify-content: flex-start;
   /*margin-right: 6.25rem;  /*Espacio entre la imagen y el título */
+}
+.calendario-container {
+    margin: 20px auto; /* Centra el contenedor horizontalmente y agrega margen superior e inferior */
+    padding: 20px; /* Espaciado interno */
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: inherit;
+}
+
+.calendario-container h2 {
+    text-align: center; /* Centra el título */
+    color: #333; /* Color del texto del título */
+    margin-bottom: 20px; /* Espaciado inferior */
 }
 
 /* Estilo general para el contenedor principal */
@@ -246,23 +253,26 @@ tbody tr:hover {
 
 .last-container {
   display: flex; /* Usar flexbox para alinear los elementos */
-  justify-content: flex-start; /* Alinear los elementos al inicio */
-  align-items: flex-start; /* Alinear los elementos al inicio */
-  gap: 1.25rem; /* Espacio entre los elementos */
+  justify-content: center; /* Alinear los elementos al inicio */
+  align-items: center; /* Alinear los elementos al inicio */
+  gap: 1rem; /* Espacio entre los elementos */
   padding: 1.25rem; /* Espaciado interno */
+  flex-direction: column;
+}
+
+.last-container-calendar {
+  display: flex; /* Usar flexbox para alinear los elementos */
+  justify-content: center; /* Alinear los elementos al inicio */
+  align-items: center; /* Alinear los elementos al inicio */
+  gap: 1rem; /* Espacio entre los elementos */
+  padding: 1.25rem; /* Espaciado interno */
+  flex-direction: column;
+  width: 60%;
 }
 
 /* Contenedor Principal */
 .main-container {
-  display: flex;
-  flex: 1;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1.25rem;
-  padding: 1.25rem;
-  max-width: 62.5rem;
-  margin: 0 auto;
-  padding-bottom: 200px; /* Espacio para que el footer no cubra el contenido */
+  width: 100%;
 }
 
 /* General: Contenedor principal */
@@ -314,21 +324,23 @@ tbody tr:hover {
 
 /*--------------------- widget------------------------*/
 
-
-/* Estilo para el Widget */
 .widget {
-  
-  top: 6.25rem; /* Espacio desde la parte superior */
-  left: 1.25rem; /* Espacio desde el lado izquierdo */
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
   background: rgba(255, 255, 255, 0.8);/* Fondo suave */
   border-radius: 15px; /* Bordes redondeados */
-  padding: 1.25rem;
-  width: 300px; /* Ancho fijo */
+  padding: 0.5rem;
+  width: 100%; /* Ancho fijo */
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
   font-family: Arial, sans-serif; /* Fuente legible */
   color: #333;
   z-index: 800; /* Asegúrate de que esté por encima de otros elementos */
 }
+
+
 
 .widget-title {
   font-size: 1.8em;
@@ -336,6 +348,17 @@ tbody tr:hover {
   text-align: center;
   color: #333;
 }
+
+.widget-content.horizontal-layout {
+  display: flex; /* Organiza los elementos en fila */
+  flex-direction: row; /* Asegura que estén alineados horizontalmente */
+  justify-content: space-around; /* Espacio uniforme entre los elementos */
+  align-items: center; /* Alinea los elementos verticalmente */
+  gap: 20px; /* Espacio entre los elementos individuales */
+  flex-wrap: nowrap; /* Evita que los elementos salten a una nueva fila */
+  overflow-x: auto; /* Permite desplazamiento horizontal si no hay espacio suficiente */
+}
+
 
 .widget-content {
   display: flex;
@@ -345,13 +368,14 @@ tbody tr:hover {
 
 .sun-info {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 15px;
+  text-align: center;
 }
 
 .sun-info .icon {
   font-size: 2.5em; /* Tamaño grande para los iconos */
-  margin-right: 15px;
+  margin-right: 1rem;
 }
 
 .sun-info h2 {
@@ -398,7 +422,7 @@ tbody tr:hover {
   background: #ffffff; /* Fondo blanco */
   border-radius: 1.25rem; /* Bordes redondeados */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-  padding: 2.5rem 2.5rem 0; /* Espaciado lateral y superior */
+  padding: 0.5rem; /* Espaciado lateral y superior */
   text-align: center;
   width: 100%; /* Un tamaño más compacto */
   height: auto; /* Altura moderada */
@@ -424,7 +448,7 @@ h2 {
 .slider-arrows {
   position: absolute;
   top: 10%; /* Colocamos las flechas en el tercio superior */
-  width: calc(100% - 5rem); /* Ajuste del ancho para dejar espacio para las flechas */
+  width: calc(98%); /* Ajuste del ancho para dejar espacio para las flechas */
   display: flex;
   justify-content: space-between;
   padding: 0; /* Sin padding */
