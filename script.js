@@ -288,7 +288,10 @@ async function displayNextTatwa() {
     `;
 
     const tatwaNameHTML = `
-    <span id="tatwa-name-text" style="font-size: 2em; font-weight: bold; color: ${currentTatwa.color_hex}; font-size: 30px;">
+    <span id="tatwa-name-text" style="font-size: 2.2rem; font-weight: bold; 
+    color: ${currentTatwa.color_hex}; 
+    background-color: white;
+    font-size: 2rem;">
         ${currentTatwa.name}
     </span>
     `;
@@ -301,11 +304,30 @@ async function displayNextTatwa() {
     // Actualiza el contenido del elemento
     // Actualiza el contenido del elemento sliderContent
     const sliderContent = document.getElementById("sliderContent");
+
+    // Variable para almacenar la clase de fondo 
+    let backgroundClass = ''; // Asignar la clase de fondo basada en el nombre del Tatwa 
+    console.log(currentTatwa.name);
+    switch (currentTatwa.name) { 
+        case "Akash": backgroundClass = 'bg-akash'; break; 
+        case "Tejas": backgroundClass = 'bg-tejas'; break; 
+        case "Vayu": backgroundClass = 'bg-vayu'; break; 
+        case "Agni": backgroundClass = 'bg-agni'; break; 
+        case "Jala": backgroundClass = 'bg-jala'; break; 
+        case "Prithvi": backgroundClass = 'bg-prithvi'; break; 
+    }
+
+    // Aplicar la clase de fondo al sliderContent 
+    sliderContent.className = backgroundClass; 
+    
     sliderContent.innerHTML = `
-        Siguiente Tatwa regente: ${tatwaNameHTML} <br> 
-            <span style="font-size: 0.8em; font-style: italic; color: #666;">
-                Horario desde las: ${startFormatted} - ${endFormatted}
-            </span>`;
+    <span style="font-size: 2rem; font-style: italic; color: white;">
+    Siguiente Tatwa regente: ${tatwaNameHTML} 
+    </span>
+    <br> 
+        <span style="font-size: 1.5rem; font-style: italic; color: white;">
+            Horario: ${startFormatted} - ${endFormatted}
+        </span>`;
 
     // Mostrar la descripción del Tatwa actual
     document.getElementById("tatwa-description").innerText = currentTatwa.description;
