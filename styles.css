@@ -170,6 +170,7 @@ h1, h2 {
   font-size: 1em;
   color: #555;
   margin: 5px 0;
+
 }
 
 footer {
@@ -310,6 +311,49 @@ tbody tr:hover {
   margin: 5px 0;
   color: #555;
 }
+
+/*---------------------BACKGROUND FOR TATWAS--------------*/
+/*BACKGROUNDS
+https://imgkub.com/images/2024/12/12/Banner_vayu.jpg
+https://imgkub.com/images/2024/12/12/Banner_agni.jpg
+https://imgkub.com/images/2024/12/12/Banner_akash.jpg
+https://imgkub.com/images/2024/12/12/Banner_jala.jpg
+https://imgkub.com/images/2024/12/12/Banner_prithvi.jpg
+
+*/
+
+/* Define clases para cada fondo */
+.bg-akash {
+  background-image: url("https://imgkub.com/images/2024/12/12/Banner_akash.jpg");
+  background-size: cover;
+  background-position: right;
+}
+
+.bg-vayu {
+  background-image: url("https://imgkub.com/images/2024/12/12/Banner_vayu.jpg");
+  background-size: cover;
+  background-position: right;
+}
+
+.bg-agni {
+  background-image: url("https://imgkub.com/images/2024/12/12/Banner_agni.jpg");
+  background-size: cover;
+  background-position: right;
+}
+
+.bg-jala {
+  background-image: url("https://imgkub.com/images/2024/12/12/Banner_jala.jpg");
+  background-size: cover;
+  background-position: right;
+}
+
+.bg-prithvi {
+  background-image: url("https://imgkub.com/images/2024/12/12/Banner_prithvi.jpg");
+  background-size: cover;
+  background-position: right;
+}
+
+
 
 
 /*--------------------- widget------------------------*/
