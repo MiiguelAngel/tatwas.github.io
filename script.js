@@ -32,17 +32,68 @@ async function initializeTatwas() {
         tatwaTimes.push(`${formattedHour}:${formattedMinute}`);
     }
 
-    const scheduleList = document.getElementById("schedule-list");
+    const scheduleList = document.getElementById("calendar-timeline");
     scheduleList.innerHTML = '';  // Limpiar la lista antes de agregar nuevos elementos
 
     // Asegúrate de que se muestren todos los Tatwas
     const totalTatwas = tatwas.length;
+
+    // Obtener la hora actual 
+    const now = new Date(); 
+    const currentHour = now.getHours(); 
+    const currentMinute = now.getMinutes();
+
     tatwaTimes.forEach((time, index) => {
-        const li = document.createElement("tr"); // Cambiar a 'tr' para filas de tabla
-        const tatwaForTime = tatwas[index % totalTatwas]; // Usar el índice directamente
-        li.innerHTML = `<td>${time}</td><td>${tatwaForTime.name}</td>`; // Solo hora y nombre del Tatwa
-        scheduleList.appendChild(li);
-    });
+        const [hour, minute] = time.split(':').map(Number);
+    // Solo agregar el artículo si la hora del Tatwa es mayor a la hora actual 
+    if (hour > currentHour || (hour >= currentHour-1 && minute > currentMinute)) {
+
+        // Obtener el Tatwa correspondiente para la hora actual
+        const tatwaForTime = tatwas[index % totalTatwas];  // Usar el índice para acceder al Tatwa correspondiente
+        // Crear el artículo con <h2> (para la hora) y <p> (para el nombre del evento)
+        const article = document.createElement('article');
+
+        // Crear el <h2> para la hora
+        const title = document.createElement('h2');
+        title.textContent = time;  // Asignar la hora correspondiente
+
+        // Crear el <p> para la descripción del evento (nombre del Tatwa)
+        const description = document.createElement('p');
+        // Usar innerHTML para insertar HTML dinámicamente
+        description.innerHTML = `<span id="tatwa-name-text" style="color: ${tatwaForTime.color_hex}; font-size: 50px;">
+            ${tatwaForTime.name}    
+        </span>`;  // Asignar el nombre del Tatwa con el estilo dinámico
+
+        // Insertar <h2> y <p> en el artículo
+        article.appendChild(title);
+        article.appendChild(description);
+
+            // Asignar clase de fondo basado en el Tatwa
+        switch (tatwaForTime.name) {
+            case "Akash":
+            article.classList.add("bg-akash");
+            break;
+            case "Vayu":
+            article.classList.add("bg-vayu");
+            break;
+            case "Agni":
+                article.classList.add("bg-agni");
+            break;
+            case "Jala":
+                article.classList.add("bg-jala");
+            break;
+            case "Prithvi":
+                article.classList.add("bg-prithvi");
+            break;
+            // Otros casos para diferentes Tatwas
+        }
+
+        // Agregar el artículo al contenedor del calendario
+        scheduleList.appendChild(article);  
+    }
+});
+
+    console.log(scheduleList);
 }
 
 // Función para calcular el Tatwa actual y el siguiente Tatwa basado en la hora de la primera luz
@@ -120,30 +171,6 @@ function getNextTatwa(currentTime, firstLightTime) {
 }
 
 
-
-function displayTatwaSchedule(currentTime) {
-    const scheduleList = document.getElementById("schedule-list");
-    scheduleList.innerHTML = ''; // Limpiar la lista antes de agregar nuevos elementos
-
-    const tatwaDuration = 24; // Cada Tatwa dura 24 minutos
-    const totalMinutesInDay = 24 * 60; // Total de minutos en un día
-
-    // Generar el horario de Tatwas para el día
-    for (let i = 0; i < totalMinutesInDay; i += tatwaDuration) {
-        const hour = Math.floor(i / 60);
-        const minute = i % 60;
-        const formattedHour = String(hour).padStart(2, '0');
-        const formattedMinute = String(minute).padStart(2, '0');
-        const time = `${formattedHour}:${formattedMinute}`;
-
-        const tatwaIndex = Math.floor(i / tatwaDuration) % tatwas.length;
-        const tatwaForTime = tatwas[tatwaIndex];
-
-        const li = document.createElement("tr");
-        li.innerHTML = `<td>${time}</td><td>${tatwaForTime.name}</td>`; // Solo hora y nombre del Tatwa
-        scheduleList.appendChild(li);
-    }
-}
 
 // Función para mostrar el Tatwa Actual
 async function displayCurrentTatwa() {

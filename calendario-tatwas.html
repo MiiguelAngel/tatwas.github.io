@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Horarios de los Tatwas</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles-calendar.css">
   <link rel="icon" type="image/png" href="Assets\MCS logo 3.png">
   <script src="tatwas.js"></script> <!-- Archivo donde está definida la variable tatwas -->
   <script src="script.js"></script> <!-- Tu archivo script.js -->
@@ -62,7 +62,7 @@
           </div>
           <div class="sun-info">
             <div class="icon" id="last-light-icon">🌙</div>
-            <div class="info">
+            <div class="info">  
               <h2>Última Luz</h2>
               <p id="last-light">Cargando...</p>
             </div>
@@ -70,24 +70,14 @@
         </div>
       </div>
       <!-- Widget del Clima -->
-
-
-
-          <div class="calendario-container">
-            <h2>Calendario de Tatwas</h2>
-            <table id="tatwa-schedule" style="width: 100%; border-collapse: collapse;">
-              <thead>
-                <tr>
-                  <th>Hora</th>
-                  <th>Tatwa</th>
-                </tr>
-              </thead>
-              <tbody id="schedule-list">
-                <!-- Las horas del día se llenarán dinámicamente -->
-              </tbody>
-            </table>
+      
+      <div class="calendar-container-def">
+        <section>
+          <div class="grid-wrapper">
+            <p id="calendar-timeline"></p>
           </div>
-  </div>
+        </section>
+      </div>
 
     
   <!-- Pie de página -->

@@ -1,0 +1,355 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: rgba(255, 255, 255, 0.8); /* Cambia a un color gris claro */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: center; /* Para que el fondo se posicione correctamente */
+    width: 100%;
+    overflow-x: hidden;
+    flex-wrap: wrap;
+  }
+
+header {
+position: sticky;
+top: 0;
+z-index: 800;
+width: 100%; /* El encabezado abarca todo el ancho */
+margin: 0 auto; /* Centra el encabezado horizontalmente */
+background-color: rgba(255, 255, 255, 0.8);
+padding: 1.25rem;
+display: flex; /* Usar flexbox para alinear elementos */
+flex-direction: column; /* Cambia la dirección a columna */
+align-items: center; /* Centra los elementos horizontalmente */
+}
+
+.header-right {
+    max-height: 6.25rem; /* Limita la altura máxima de la imagen */
+    width: auto; /* Mantiene la proporción de la imagen */
+    margin: 0 auto; /* Centra horizontalmente si es necesario */
+  }
+  
+  .header-content {
+    padding: 1.25rem; /* Espaciado interno */
+    position: center; /* Para que el contenido esté sobre el fondo */
+    width: 100%; /* El contenedor ocupa todo el ancho disponible */
+    display: flex;
+    justify-content: center; /* Centra el contenido dentro del header */
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 2em;
+    font-weight: bold;
+    color: #000;
+    text-align: center; /* Centra el texto del título */
+  }
+  
+  header img {
+    position: sticky;
+    height: 5rem;
+    width: auto;
+    justify-content: flex-start;
+    /*margin-right: 6.25rem;  /*Espacio entre la imagen y el título */
+  }
+
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo transparente */
+    text-align: left;
+    border-radius: 10px;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 0.9em;
+    color: #666;
+    display: flex;
+    align-items: flex-start;
+    padding-left: 10%;
+    z-index: 800; /* Asegura que el footer esté por encima del contenido */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque de fondo */
+  }
+
+/*---------------------------MENU--------------------------*/
+.primary-menu-wrapper {
+    background-color: rgba(24, 77, 71, 1); /* Color de fondo del menú */
+    padding: 10px 0; /* Espaciado superior e inferior */
+    max-width: 100%; /* Establece un ancho máximo fijo */
+    margin: 0 auto;
+    width: 100%; /* Asegúrate de que el encabezado ocupe todo el ancho */
+    max-height: max-content;
+  }
+  
+  .primary-menu {
+    list-style: none; /* Eliminar los puntos de la lista */
+    margin: 0; /* Eliminar márgenes */
+    padding: 0; /* Eliminar relleno */
+    display: flex; /* Usar flexbox para alinear los elementos */
+    justify-content: center; /* Alinear los elementos a la derecha */
+  }
+  
+  .primary-menu .menu-item {
+    margin: 0 15px; /* Espaciado entre los elementos del menú */
+  }
+  
+  .primary-menu .menu-item a {
+    text-decoration: none; /* Eliminar subrayado de los enlaces */
+    color: #ffffff; /* Color del texto */
+    font-size: 16px; /* Tamaño de fuente */
+    transition: color 0.3s; /* Transición suave para el color */
+  }
+  
+  .primary-menu .menu-item a:hover {
+    color: #15bd68; /* Color del texto al pasar el mouse */
+  }
+  
+  .primary-menu .menu-item.current-menu-item a {
+    font-weight: bold; /* Resaltar el elemento actual */
+    color: #15bd68; /* Color del texto del elemento actual */
+  }
+
+/*--------------------- widget------------------------*/
+
+.widget {
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.8);/* Fondo suave */
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 0.5rem;
+    width: 100%; /* Ancho fijo */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    font-family: Arial, sans-serif; /* Fuente legible */
+    color: #333;
+    z-index: 800; /* Asegúrate de que esté por encima de otros elementos */
+  }
+  
+  
+  
+  .widget-title {
+    vertical-align: middle;
+    font-size: 1.8em;
+    margin-bottom: 0.1rem;
+    align-items: center;
+    text-align: center;
+    color: #333;
+    background-size: cover;
+  }
+  
+  .widget-content.horizontal-layout {
+    display: flex; /* Organiza los elementos en fila */
+    flex-direction: row; /* Asegura que estén alineados horizontalmente */
+    justify-content: space-around; /* Espacio uniforme entre los elementos */
+    align-items: center; /* Alinea los elementos verticalmente */
+    gap: 20px; /* Espacio entre los elementos individuales */
+    flex-wrap: nowrap; /* Evita que los elementos salten a una nueva fila */
+    overflow-x: auto; /* Permite desplazamiento horizontal si no hay espacio suficiente */
+  }
+  
+  
+  .widget-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .sun-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .sun-info .icon {
+    font-size: 2.5em; /* Tamaño grande para los iconos */
+    margin-right: 1rem;
+  }
+  
+  .sun-info h2 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    color: #555; /* Color del título */
+  }
+  
+  .sun-info p {
+    font-size: 1.1em;
+    color: #007aff; /* Color azul para los textos */
+  }
+  
+  .sun-info p#sunrise, .sun-info p#sunset {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #333; /* Colores más oscuros para el texto */
+    transition: color 0.3s ease; /* Transición suave */
+  }
+  
+  .sun-info p#sunrise:hover, .sun-info p#sunset:hover {
+    color: #0051a8; /* Color al pasar el mouse */
+  }
+  
+  /* Estilo para los iconos */
+  #sunrise-icon, #sunset-icon {
+    color: #f39c12; /* Color dorado para el sol */
+    transition: transform 0.3s ease; /* Efecto de animación */
+  }
+  
+  .sun-info:hover .icon {
+    transform: scale(1.2); /* Escala al pasar el mouse */
+  }
+
+/*----------------------TIMELINE--------------*/
+
+
+/*BACKGROUNDS
+https://imgkub.com/images/2024/12/12/Banner_vayu.jpg
+https://imgkub.com/images/2024/12/12/Banner_agni.jpg
+https://imgkub.com/images/2024/12/12/Banner_akash.jpg
+https://imgkub.com/images/2024/12/12/Banner_jala.jpg
+https://imgkub.com/images/2024/12/12/Banner_prithvi.jpg
+
+*/
+
+
+/* Define clases para cada fondo */
+.bg-akash {
+    background-image: url("https://imgkub.com/images/2024/12/12/Banner_akash.jpg");
+  }
+  
+.bg-vayu {
+    background-image: url("https://imgkub.com/images/2024/12/12/Banner_vayu.jpg");
+}
+
+.bg-agni {
+    background-image: url("https://imgkub.com/images/2024/12/12/Banner_agni.jpg");
+}
+
+.bg-jala {
+    background-image: url("https://imgkub.com/images/2024/12/12/Banner_jala.jpg");
+}
+
+.bg-prithvi {
+    background-image: url("https://imgkub.com/images/2024/12/12/Banner_prithvi.jpg");
+}
+  
+
+
+.last-container-calendar {
+    display: flex; /* Usar flexbox para alinear los elementos */
+    justify-content: center; /* Alinear los elementos al inicio */
+    align-items: center; /* Alinear los elementos al inicio */
+    gap: 1rem; /* Espacio entre los elementos */
+    padding: 1.25rem; /* Espaciado interno */
+    flex-direction: column;
+    width: 80%;
+  }
+  
+  section {
+    width: 55rem;
+  }
+
+  .grid-wrapper {
+    display: flex;
+    width: 100%;
+  }
+
+  .calendar-container-def {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    display: grid;
+    place-items: center;
+  }
+
+/* Contenedor del calendario */
+#calendar-timeline {
+    max-width: 100%; /* Ancho máximo del contenedor */
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto; /* Centra el contenedor */
+    padding: 20px; /* Espaciado interno */
+    background-color: #fff; /* Fondo blanco para el contenedor */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    position: relative; /* Para posicionar los elementos internos */
+}
+
+/* Estilo para cada artículo */
+#calendar-timeline article {
+    position: relative; /* Para posicionar el pseudo-elemento */
+    padding: 15px 20px; /* Espaciado interno */
+    margin: 2rem 4rem; /* Margen entre artículos */
+    border-radius: 8px; /* Bordes redondeados */
+    background-size: cover; /* Ajusta la imagen para cubrir todo el área */
+    background-position: right; /* Centra la imagen */
+    transition: background-color 0.3s, transform 0.3s; /* Transición suave */
+    display: flex; /* Usar flexbox para alinear elementos */
+    align-items: center; /* Centrar verticalmente */
+}
+
+/* Efecto hover */
+#calendar-timeline article:hover {
+    background-color: #dfe6e9; /* Color de fondo al pasar el mouse */
+    transform: scale(1.02); /* Efecto de aumento al pasar el mouse */
+}
+
+/* Estilo para el encabezado (hora) */
+#calendar-timeline h2 {
+    font-size: 1.5rem; /* Tamaño de fuente más grande */
+    margin: 0; /* Elimina el margen */
+    color: #2c3e50; /* Color del texto del encabezado */
+    flex: 0 0 100px; /* Ancho fijo para la hora */
+}
+
+/* Estilo para el párrafo (nombre) */
+#calendar-timeline p {
+    font-size: 1rem; /* Tamaño de fuente normal */
+    margin: 5px 0 0; /* Margen superior para separar del encabezado */
+    color: #7f8c8d; /* Color de texto más suave */
+    flex: 1; /* Ocupa el espacio restante */
+}
+
+/* Icono de la línea de tiempo */
+#calendar-timeline article::before {
+    content: '';
+    position: absolute;
+    left: -20px; /* Posición del icono */
+    top: 50%; /* Centra verticalmente */
+    transform: translateY(-50%); /* Centra el icono */
+    width: 20px; /* Ancho del icono */
+    height: 20px; /* Alto del icono */
+    background-color: #2c3e50; /* Color del icono */
+    border-radius: 50%; /* Hacerlo circular */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+/* Línea de tiempo */
+#calendar-timeline::after {
+    content: '';
+    position: absolute;
+    left: 50%; /* Centra la línea */
+    top: 0; /* Comienza desde la parte superior */
+    height: 100%; /* Altura completa */
+    width: 4px; /* Ancho de la línea */
+    background-color: #2c3e50; /* Color de la línea */
+    transform: translateX(-50%); /* Centra la línea */
+    z-index : -1; /* Asegura que la línea esté detrás de los artículos */
+}
+
+/* Estilo para los artículos en la línea de tiempo */
+#calendar-timeline article:nth-child(odd) {
+    background-color: #dfe6e9; /* Color de fondo para artículos impares */
+}
+
+#calendar-timeline article:nth-child(even) {
+    background-color: #b2bec3; /* Color de fondo para artículos pares */
+}
+

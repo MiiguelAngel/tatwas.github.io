@@ -3,7 +3,7 @@ const tatwas = [
       name: "Akash",
       description: "El Tatwa de Akash es el primer elemento, el principio primordial que representa el espacio infinito. Este Tatwa es la base de toda creación, el vacío sagrado donde todo tiene su origen y a la vez su regreso. Akash es la conciencia pura, el espacio interior y exterior, un espacio ilimitado donde las ideas y los pensamientos nacen y se disuelven. En la gnosis, este Tatwa es sinónimo de serenidad y conciencia expansiva.",
       color: "Un color profundo y terroso, similar al marrón oscuro o al color de la tierra que se disuelve en el horizonte al atardecer, reflejando la profundidad y vastedad del vacío infinito.",
-      color_hex: "#B0BEC5", // Color metálico suave para Akash
+      color_hex: "#3E3D9E", // Color metálico suave para Akash
       subtatwas: [
         {
           name: "Subtatwa de la conciencia pura",
