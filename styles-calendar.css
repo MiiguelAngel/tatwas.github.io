@@ -305,7 +305,7 @@ https://imgkub.com/images/2024/12/12/Banner_prithvi.jpg
 #calendar-timeline h2 {
     font-size: 1.5rem; /* Tamaño de fuente más grande */
     margin: 0; /* Elimina el margen */
-    color: #2c3e50; /* Color del texto del encabezado */
+    color: black; /* Color del texto del encabezado */
     flex: 0 0 100px; /* Ancho fijo para la hora */
 }
 
