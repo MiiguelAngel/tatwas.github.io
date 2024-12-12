@@ -46,7 +46,7 @@ async function initializeTatwas() {
     tatwaTimes.forEach((time, index) => {
         const [hour, minute] = time.split(':').map(Number);
     // Solo agregar el artículo si la hora del Tatwa es mayor a la hora actual 
-    if (hour > currentHour-1 || (hour >= currentHour-1 && minute > currentMinute)) {
+    if (hour > currentHour-1) {
 
         // Obtener el Tatwa correspondiente para la hora actual
         const tatwaForTime = tatwas[index % totalTatwas];  // Usar el índice para acceder al Tatwa correspondiente
