@@ -76,11 +76,11 @@ async function initializeTatwas() {
             case "Vayu":
             article.classList.add("bg-vayu");
             break;
-            case "Agni":
-                article.classList.add("bg-agni");
+            case "Tejas":
+                article.classList.add("bg-tejas");
             break;
-            case "Jala":
-                article.classList.add("bg-jala");
+            case "Apas":
+                article.classList.add("bg-apas");
             break;
             case "Prithvi":
                 article.classList.add("bg-prithvi");
@@ -218,8 +218,8 @@ async function displayCurrentTatwa() {
         case "Akash": backgroundClass = 'bg-akash'; break; 
         case "Tejas": backgroundClass = 'bg-tejas'; break; 
         case "Vayu": backgroundClass = 'bg-vayu'; break; 
-        case "Agni": backgroundClass = 'bg-agni'; break; 
-        case "Jala": backgroundClass = 'bg-jala'; break; 
+        case "Tejas": backgroundClass = 'bg-tejas'; break; 
+        case "Apas": backgroundClass = 'bg-apas'; break; 
         case "Prithvi": backgroundClass = 'bg-prithvi'; break; 
     }
 
@@ -312,14 +312,14 @@ async function displayNextTatwa() {
         case "Akash": backgroundClass = 'bg-akash'; break; 
         case "Tejas": backgroundClass = 'bg-tejas'; break; 
         case "Vayu": backgroundClass = 'bg-vayu'; break; 
-        case "Agni": backgroundClass = 'bg-agni'; break; 
-        case "Jala": backgroundClass = 'bg-jala'; break; 
+        case "Tejas": backgroundClass = 'bg-tejas'; break; 
+        case "Apas": backgroundClass = 'bg-apas'; break; 
         case "Prithvi": backgroundClass = 'bg-prithvi'; break; 
     }
 
     // Aplicar la clase de fondo al sliderContent 
     sliderContent.className = backgroundClass; 
-    
+
     sliderContent.innerHTML = `
     <span style="font-size: 2rem; font-style: italic; color: white;">
     Siguiente Tatwa regente: ${tatwaNameHTML} 
@@ -362,7 +362,7 @@ async function displayNextTatwa() {
 
 // Función para generar la línea de tiempo con subtatwas
 function generateTatwaTimeline(currentTime, startTatwaTime, endTatwaTime) {
-    const subtatwas_order = ["akash","vayu","agni","jala","prithvi"];
+    const subtatwas_order = ["akash","vayu","tejas","apas","prithvi"];
     const tatwaDuration = (endTatwaTime - startTatwaTime) / 60000; // Duración en minutos
     const subTatwaCount = 5; // Número de subtatwas (5)
     const subTatwaDuration = tatwaDuration / subTatwaCount; // Duración de cada subtatwa en minutos
