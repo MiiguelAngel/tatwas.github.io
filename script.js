@@ -80,7 +80,7 @@ async function initializeTatwas() {
             back.classList.add('article-back');
             back.innerHTML = `<span id="tatwa-name-text" class="custom-font-size" style="color: ${tatwaForTime.color_hex}; ">
                 ${tatwaForTime.name} : ${tatwaForTime.description} 
-            </span>:`; // Aquí va la descripción del Tatwa
+            </span>`; // Aquí va la descripción del Tatwa
 
             // Insertar las partes frontal y trasera en article-inner
             articleInner.appendChild(front);

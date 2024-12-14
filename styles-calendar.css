@@ -312,9 +312,9 @@ article {
   justify-content: center; /* Centra los elementos */
   align-items: center; /* Alinear los elementos al centro */
   gap: 1rem; /* Espacio entre los elementos */
-  padding: 1.25rem; /* Espaciado interno */
+  padding: 3rem; /* Espaciado interno */
   flex-direction: column; /* Cambia a columna en pantallas pequeñas */
-  width: 60%;
+  width: 80%;
   margin: 0 auto; /* Centra el contenedor */
 }
 

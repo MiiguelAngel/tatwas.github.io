@@ -334,7 +334,7 @@ https://imgkub.com/images/2024/12/12/Banner_prithvi.jpg
   background-image: url("https://imgkub.com/images/2024/12/12/Banner_agni.jpg");
   background-size: cover;
   background-position: right;
-  padding: 1.1rem;
+  padding: 3rem;
   margin: 0.5rem;
 }
 
@@ -494,7 +494,7 @@ h2 {
 /* Estilo para las flechas */
 .slider-arrows {
   position: absolute;
-  top: 13%; /* Colocamos las flechas en el tercio superior */
+  top: 15%; /* Colocamos las flechas en el tercio superior */
   width: calc(98%); /* Ajuste del ancho para dejar espacio para las flechas */
   display: flex;
   justify-content: space-between;
@@ -838,6 +838,10 @@ h2 {
 
     .actions-container {
       flex-direction: column;
+    }
+
+    .slider-arrows{
+      top: 18%; /* Colocamos las flechas en el tercio superior */
     }
 
     .tatwa-actions {
