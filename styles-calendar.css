@@ -55,6 +55,8 @@ align-items: center; /* Centra los elementos horizontalmente */
     height: 5rem;
     width: auto;
     justify-content: flex-start;
+    max-width: 100%; /* Asegúrate de que las imágenes sean responsivas */
+    
     /*margin-right: 6.25rem;  /*Espacio entre la imagen y el título */
   }
 
@@ -131,6 +133,14 @@ align-items: center; /* Centra los elementos horizontalmente */
     font-family: Arial, sans-serif; /* Fuente legible */
     color: #333;
     z-index: 800; /* Asegúrate de que esté por encima de otros elementos */
+  }
+
+  .date-style { 
+    font-size: 16px; 
+    font-style: italic; 
+    text-align: center; 
+    margin: 0; 
+    padding: 5px 0; 
   }
   
   
@@ -222,6 +232,7 @@ https://imgkub.com/images/2024/12/12/Banner_prithvi.jpg
 /* Define clases para cada fondo */
 .bg-akash {
     background-image: url("https://imgkub.com/images/2024/12/12/Banner_akash.jpg");
+    max-width: 100%;
   }
   
 .bg-vayu {
@@ -241,37 +252,43 @@ https://imgkub.com/images/2024/12/12/Banner_prithvi.jpg
 }
   
 
-
 .last-container-calendar {
-    display: flex; /* Usar flexbox para alinear los elementos */
-    justify-content: center; /* Alinear los elementos al inicio */
-    align-items: center; /* Alinear los elementos al inicio */
-    gap: 1rem; /* Espacio entre los elementos */
-    padding: 1.25rem; /* Espaciado interno */
-    flex-direction: column;
-    width: 80%;
-  }
-  
-  section {
-    width: 55rem;
-  }
+  display: flex; /* Usar flexbox para alinear los elementos */
+  justify-content: center; /* Centra los elementos */
+  align-items: center; /* Alinear los elementos al centro */
+  gap: 1rem; /* Espacio entre los elementos */
+  padding: 1.25rem; /* Espaciado interno */
+  flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+  width: 80%;
+  margin: 0 auto; /* Centra el contenedor */
+}
+
+  .calendar-container-def section {
+    width: 100%; /* Asegúrate de que la sección ocupe todo el ancho del contenedor */
+    padding: 0; /* Elimina padding que pueda causar corte */
+    margin: 0; /* Elimina márgenes que puedan causar corte */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
 
   .grid-wrapper {
-    display: flex;
+    
     width: 100%;
   }
 
+
   .calendar-container-def {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    display: grid;
     place-items: center;
-  }
+    display: contents; /* Usar flexbox para alinear los elementos */
+    justify-content: center; /* Centra los elementos */
+    width: 100%; /* Asegúrate de que ocupe todo el ancho */
+    max-width: 100%; /* Ancho máximo para pantallas grandes */
+    margin: 0 auto; /* Centra el contenedor */
+    padding: 1rem; /* Espaciado interno */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
 
 /* Contenedor del calendario */
 #calendar-timeline {
-    max-width: 100%; /* Ancho máximo del contenedor */
     width: 100%;
     box-sizing: border-box;
     margin: 0 auto; /* Centra el contenedor */
@@ -293,6 +310,8 @@ https://imgkub.com/images/2024/12/12/Banner_prithvi.jpg
     transition: background-color 0.3s, transform 0.3s; /* Transición suave */
     display: flex; /* Usar flexbox para alinear elementos */
     align-items: center; /* Centrar verticalmente */
+    width: 85%;
+    
 }
 
 /* Efecto hover */
@@ -307,6 +326,7 @@ https://imgkub.com/images/2024/12/12/Banner_prithvi.jpg
     margin: 0; /* Elimina el margen */
     color: black; /* Color del texto del encabezado */
     flex: 0 0 100px; /* Ancho fijo para la hora */
+    max-width: 100%
 }
 
 /* Estilo para el párrafo (nombre) */
@@ -315,6 +335,7 @@ https://imgkub.com/images/2024/12/12/Banner_prithvi.jpg
     margin: 5px 0 0; /* Margen superior para separar del encabezado */
     color: #7f8c8d; /* Color de texto más suave */
     flex: 1; /* Ocupa el espacio restante */
+    max-width: 100%
 }
 
 /* Icono de la línea de tiempo */
@@ -351,5 +372,80 @@ https://imgkub.com/images/2024/12/12/Banner_prithvi.jpg
 
 #calendar-timeline article:nth-child(even) {
     background-color: #b2bec3; /* Color de fondo para artículos pares */
+}
+
+
+/*------------------------MEDIA QUERYS-----------------*/
+@media (max-width: 600px) {
+    .last-container-calendar {
+        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+        padding: 0.5rem; /* Reduce el padding en móviles */
+        width: 100%; /*ajusta el tamaño*/
+    }
+
+    .widget {
+        width: 90%; /* Asegúrate de que el widget ocupe todo el ancho */
+        margin: 0; /* Elimina márgenes que puedan causar corte */
+        margin-top: 1rem;
+        justify-content: left;
+
+    }
+
+    /* Ajusta otros elementos según sea necesario */
+    #calendar-timeline {
+        width: 90%; /* Asegúrate de que el calendario ocupe todo el ancho */
+        padding: 0; /* Elimina padding que pueda causar corte */
+        padding-top: 1.5rem;
+    }
+
+    #calendar-timeline article {
+      width: 65%;
+      margin: 2rem 4rem; /* Margen entre artículos */
+
+    }
+
+    /* Agregar margen superior específico al primer artículo */
+    #calendar-timeline article:first-child {
+      margin-top: 1.5rem; /* Ajusta el valor según sea necesario */
+    }
+
+    .sun-info h2{
+      font-size: 0.5em;
+    }
+
+    .date-style {
+      font-size: small;
+    }
+
+  .widget-content.horizontal-layout{
+    gap: 10px;
+  }
+
+  .widget-title{
+    font-size: 1.2em;
+  }
+
+  .sun-info h2{
+    font-size: 0.5em;
+  }
+
+  .sun-info p{
+    font-size: 0.5em;
+  }
+
+  .sun-info p#sunrise, .sun-info p#sunset {
+    font-size: 0.5em;  
+  }
+
+    footer { 
+      padding: 20px 0; /* Aumentamos el espaciado interno en pantallas pequeñas */ 
+    }
+
+    footer p { font-size: 0.5em; /* Disminuimos el tamaño de la fuente en pantallas pequeñas */ 
+    }
+
+    h1 {
+      font-size: 1em;
+    }
 }
 

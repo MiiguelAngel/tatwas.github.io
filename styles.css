@@ -22,16 +22,6 @@ body {
   padding: 1.25rem; /* Espaciado interno */
 }
 
-.container {
-  text-align: center; /* Asegura que el texto dentro del contenedor esté centrado */
-  max-width: 62.5rem; /* Ancho fijo de 50rem */
-  margin: 0 auto; /* Centra el contenedor horizontalmente */
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  flex-grow: 1; /* Asegura que el contenedor ocupe el espacio disponible */
-  padding-bottom: 5rem; /* Espacio para que el footer no cubra el contenido */
-}
 
 header {
   position: sticky;
@@ -374,7 +364,13 @@ https://imgkub.com/images/2024/12/12/Banner_prithvi.jpg
   z-index: 800; /* Asegúrate de que esté por encima de otros elementos */
 }
 
-
+.date-style { 
+  font-size: 16px; 
+  font-style: italic; 
+  text-align: center; 
+  margin: 0; 
+  padding: 5px 0; 
+}
 
 .widget-title {
   font-size: 1.8em;
@@ -777,3 +773,89 @@ h2 {
   line-height: 1.3;
 }
 
+/*---------------------MEDIA QUERYS---------------------------*/
+@media (max-width: 600px) {
+    .header-content {
+      flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+    }
+
+    .tatwa-info {
+        padding: 1rem; /* Ajusta el padding en móviles */
+    }
+
+    .widget {
+        width: 100%; /* Asegúrate de que el widget ocupe todo el ancho */
+    }
+
+    .widget-content.horizontal-layout{
+      gap: 10px;
+    }
+
+    .widget-title{
+      font-size: 1.2em;
+    }
+
+    .sun-info h2{
+      font-size: 0.5em;
+    }
+
+    .sun-info p{
+      font-size: 0.5em;
+    }
+
+    .sun-info p#sunrise, .sun-info p#sunset {
+      font-size: 0.5em;  
+    }
+
+    #calendar-timeline {
+        padding: 0; /* Elimina padding que pueda causar corte */
+    }
+
+    .main-container {
+      width: 22rem;
+    }
+
+    .date-style {
+      font-size: small;
+    }
+
+    .actions-container {
+      flex-direction: column;
+    }
+
+    .tatwa-actions {
+      max-width: fit-content;
+    }
+
+    .next-tatwa {
+      max-width: 100%;
+    }
+
+    .timeline-segment {
+      font-size: small;
+    }
+
+    .tatwa-info {
+      gap: 1rem;
+    }
+
+    .last-container {
+      align-items: flex-start;
+    }
+
+    .sun-info .icon{
+      font-size: 2em;
+    }
+
+    footer { 
+      padding: 20px 0; /* Aumentamos el espaciado interno en pantallas pequeñas */ 
+    }
+
+    footer p { font-size: 0.5em; /* Disminuimos el tamaño de la fuente en pantallas pequeñas */ 
+    }
+
+    h1 {
+      font-size: 1em;
+    }
+
+  }

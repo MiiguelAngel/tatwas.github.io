@@ -184,6 +184,7 @@ async function displayCurrentTatwa() {
 
     // Actualizar el nombre del Tatwa con el color y el icono
     const tatwaNameElement = document.getElementById("tatwa-name");
+    if (tatwaNameElement) {
     tatwaNameElement.innerHTML = `
         <span id="tatwa-icon" style="color: ${currentTatwa.color_hex}; font-size: 50px; margin-right: 10px;">
             ${currentTatwa.icon}
@@ -192,6 +193,7 @@ async function displayCurrentTatwa() {
             ${currentTatwa.name}    
         </span>
     `;
+    }
 
     const tatwaNameHTML = `
     <span id="tatwa-name-text" style="font-size: 2.2rem; font-weight: bold; 
@@ -210,7 +212,7 @@ async function displayCurrentTatwa() {
     // Actualiza el contenido del elemento
     // Actualiza el contenido del elemento sliderContent
     const sliderContent = document.getElementById("sliderContent");
-
+    if (sliderContent) {
     // Variable para almacenar la clase de fondo 
     let backgroundClass = ''; // Asignar la clase de fondo basada en el nombre del Tatwa 
     console.log(currentTatwa.name);
@@ -234,29 +236,41 @@ async function displayCurrentTatwa() {
             <span style="font-size: 1.5rem; font-style: italic; color: white;">
                 Horario: ${startFormatted} - ${endFormatted}
             </span>`;
+    }
+    // Verifica si el elemento tatwa-description existe antes de intentar modificarlo
+    const tatwaDescriptionElement = document.getElementById("tatwa-description");
+    if (tatwaDescriptionElement) {
+        tatwaDescriptionElement.innerText = currentTatwa.description;
+    }
 
-    // Mostrar la descripción del Tatwa actual
-    document.getElementById("tatwa-description").innerText = currentTatwa.description;
+    // Verifica si el elemento tatwa-color existe antes de intentar modificarlo
+    const tatwaColorElement = document.getElementById("tatwa-color");
+    if (tatwaColorElement) {
+        tatwaColorElement.innerText = currentTatwa.color;
+    }
 
-    // Mostrar el color en texto si es necesario (opcional)
-    document.getElementById("tatwa-color").innerText = currentTatwa.color;
+    // Verifica si el elemento tatwa-color_hex existe antes de intentar modificarlo
+    const tatwaColorHexElement = document.getElementById("tatwa-color_hex");
+    if (tatwaColorHexElement) {
+        tatwaColorHexElement.innerText = currentTatwa.color_hex;
+    }
 
-    // Mostrar el código hexadecimal del color (opcional)
-    document.getElementById("tatwa-color_hex").innerText = currentTatwa.color_hex;
-
-    // Actualizar el ícono directamente en caso de necesitarse por separado (opcional)
-    document.getElementById("tatwa-icon").innerText = currentTatwa.icon;
+    // Verifica si el elemento tatwa-icon existe antes de intentar modificarlo
+    const tatwaIconElement = document.getElementById("tatwa-icon");
+    if (tatwaIconElement) {
+        tatwaIconElement.innerText = currentTatwa.icon;
+    }
 
     // Mostrar el siguiente Tatwa
     //const nextTatwa = getNextTatwa(currentTime, sunrise);
     //document.getElementById("next-tatwa").innerText = nextTatwa.name;
     //console.log(nextTatwa);
 
-    // Seleccionar el elemento de la imagen
+    // Verifica si el elemento tatwa-image existe antes de intentar modificarlo
     const tatwaImageElement = document.getElementById("tatwa-image");
-
-    // Establecer la ruta de la imagen basada en el nombre del Tatwa
-    tatwaImageElement.src = `Assets/tatwa-${currentTatwa.name}.jpeg`;
+    if (tatwaImageElement) {
+        tatwaImageElement.src = `Assets/tatwa-${currentTatwa.name}.jpeg`;
+    }
 
     // Llamar a otras funciones adicionales (acciones recomendadas, horarios, etc.)
     // displayTatwaSchedule(currentTime);
@@ -374,31 +388,32 @@ function generateTatwaTimeline(currentTime, startTatwaTime, endTatwaTime) {
     const subTatwaIndex = Math.floor(elapsedMinutes / subTatwaDuration);
 
     const timelineElement = document.getElementById("tatwa-timeline");
+    if (timelineElement) {
+        // Limpiar la línea de tiempo antes de agregar nuevos segmentos
+        timelineElement.innerHTML = "";
 
-    // Limpiar la línea de tiempo antes de agregar nuevos segmentos
-    timelineElement.innerHTML = "";
+        // Crear los 5 segmentos para la línea de tiempo
+        for (let i = 0; i < subTatwaCount; i++) {
+            const segment = document.createElement("div");
+            segment.classList.add("timeline-segment");
 
-    // Crear los 5 segmentos para la línea de tiempo
-    for (let i = 0; i < subTatwaCount; i++) {
-        const segment = document.createElement("div");
-        segment.classList.add("timeline-segment");
+            // Calcular la posición del subtatwa
+            const startOfSegment = startTatwaTime.getTime() + (subTatwaDuration * i * 60000);
+            const endOfSegment = startTatwaTime.getTime() + (subTatwaDuration * (i + 1) * 60000);
 
-        // Calcular la posición del subtatwa
-        const startOfSegment = startTatwaTime.getTime() + (subTatwaDuration * i * 60000);
-        const endOfSegment = startTatwaTime.getTime() + (subTatwaDuration * (i + 1) * 60000);
+            // Marcar el subtatwa activo
+            if (i === subTatwaIndex) {
+                segment.classList.add("active");
+            }
 
-        // Marcar el subtatwa activo
-        if (i === subTatwaIndex) {
-            segment.classList.add("active");
+            // Añadir el nombre del subtatwa al segmento
+            const label = document.createElement("span");
+            label.textContent = `Subtatwa ${subtatwas_order[i]} (${formatTime(startOfSegment)} - ${formatTime(endOfSegment)})`;
+            segment.appendChild(label);
+
+            // Añadir el segmento a la línea de tiempo
+            timelineElement.appendChild(segment);
         }
-
-        // Añadir el nombre del subtatwa al segmento
-        const label = document.createElement("span");
-        label.textContent = `Subtatwa ${subtatwas_order[i]} (${formatTime(startOfSegment)} - ${formatTime(endOfSegment)})`;
-        segment.appendChild(label);
-
-        // Añadir el segmento a la línea de tiempo
-        timelineElement.appendChild(segment);
     }
 }
 
@@ -412,29 +427,34 @@ function formatTime(timeInMillis) {
 // Mostrar acciones recomendadas y no recomendadas
 function displayTatwaActions(currentTatwa) {
     const actionsList = document.getElementById("tatwa-actions");
-    actionsList.innerHTML = ''; // Limpiar la lista antes de agregar nuevos elementos
+    if (actionsList) { // Verifica si el elemento existe
+        actionsList.innerHTML = ''; // Limpiar la lista antes de agregar nuevos elementos
 
-    // Mostrar las acciones recomendadas directamente
-    if (typeof currentTatwa.actions === 'string') {
-        const li = document.createElement("li");
-        li.innerText = currentTatwa.actions; // Agregar el texto de la acción
-        actionsList.appendChild(li);
-    } else {
-        // Si no hay acciones, mostrar un mensaje
-        actionsList.innerHTML = '<li>No hay acciones recomendadas.</li>';
+        // Mostrar las acciones recomendadas directamente
+        if (typeof currentTatwa.actions === 'string') {
+            const li = document.createElement("li");
+            li.innerText = currentTatwa.actions; // Agregar el texto de la acción
+            actionsList.appendChild(li);
+        } else {
+            // Si no hay acciones, mostrar un mensaje
+            actionsList.innerHTML = '<li>No hay acciones recomendadas.</li>';
+        }
     }
 
     const notRecommendedList = document.getElementById("not-recommended-actions");
-    notRecommendedList.innerHTML = ''; // Limpiar la lista antes de agregar nuevos elementos
+    if (notRecommendedList) { // Verifica si el elemento existe
+        
+        notRecommendedList.innerHTML = ''; // Limpiar la lista antes de agregar nuevos elementos
 
-    // Mostrar las acciones no recomendadas directamente
-    if (typeof currentTatwa.notRecommended === 'string') {
-        const li = document.createElement("li");
-        li.innerText = currentTatwa.notRecommended; // Agregar el texto de la acción no recomendada
-        notRecommendedList.appendChild(li);
-    } else {
-        // Si no hay acciones no recomendadas, mostrar un mensaje
-        notRecommendedList.innerHTML = '<li>No hay acciones no recomendadas.</li>';
+        // Mostrar las acciones no recomendadas directamente
+        if (typeof currentTatwa.notRecommended === 'string') {
+            const li = document.createElement("li");
+            li.innerText = currentTatwa.notRecommended; // Agregar el texto de la acción no recomendada
+            notRecommendedList.appendChild(li);
+        } else {
+            // Si no hay acciones no recomendadas, mostrar un mensaje
+            notRecommendedList.innerHTML = '<li>No hay acciones no recomendadas.</li>';
+        }
     }
 }
 
@@ -470,7 +490,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 const firstLightFormatted = firstLightUTC.toLocaleTimeString('es-CO', options);
                 const lastLightFormatted = lastLightUTC.toLocaleTimeString('es-CO', options);
 
+                // Obtener la fecha actual 
+                const currentDate = new Date(); 
+                const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'America/Bogota' }; 
+                const dateFormatted = currentDate.toLocaleDateString('es-CO', dateOptions);
+
+
                 // Mostrar resultados en el widget
+                document.getElementById("date").textContent = dateFormatted;
                 document.getElementById("sunrise").textContent = sunriseFormatted;
                 document.getElementById("sunset").textContent = sunsetFormatted;
                 document.getElementById("first-light").textContent = firstLightFormatted;
@@ -490,11 +517,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextButton = document.getElementById('nextButton');
     const prevButton = document.getElementById('prevButton');
 
-    if (!sliderContent || !nextButton || !prevButton) {
-        console.error("Elementos no encontrados. Verifica los IDs en el HTML.");
-        return;
-    }
-
+    // Verifica si los elementos existen antes de continuar
+    if (sliderContent && nextButton && prevButton) {
     let currentIndex = 0;
     const texts = ["", ""];
 
@@ -522,6 +546,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentIndex = (currentIndex - 1 + texts.length) % texts.length; // Cambia entre 0 y 1
         updateSlider();
     });
+    }
 });
 
 //----------------------onload------------------------
