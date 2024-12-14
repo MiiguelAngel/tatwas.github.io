@@ -245,10 +245,65 @@ https://imgkub.com/images/2024/12/12/Banner_prithvi.jpg
 
 .bg-apas {
     background-image: url("https://imgkub.com/images/2024/12/12/Banner_jala.jpg");
+    height: 100%;
 }
 
 .bg-prithvi {
     background-image: url("https://imgkub.com/images/2024/12/12/Banner_prithvi.jpg");
+}
+
+/* Estilo para los artículos */
+article {
+  perspective: 1000px; /* Para dar un efecto de profundidad */
+}
+
+.article-inner {
+  position: relative;
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  display: flex; /* Usar flexbox para alinear elementos */
+  align-items: center; /* Centrar verticalmente */
+  flex-direction: row;
+  background-size: cover; /* Ajusta la imagen para cubrir todo el área */
+  background-position: right; /* Centra la imagen */
+}
+
+.article-front, .article-back {
+  position: absolute;
+  width: 100%;
+  backface-visibility: hidden;
+  display: flex; /* Usar flexbox para alinear elementos */
+  align-items: center; /* Centrar verticalmente */
+  flex-direction: row;
+  padding: 1rem;
+}
+
+
+.article-front { 
+  color: white; 
+  background-size: cover; /* Asegura que la imagen de fondo cubra completamente el contenedor */
+  background-position: center; /* Centra la imagen de fondo */ 
+  background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */ 
+  box-sizing: border-box;
+} 
+.article-back { 
+  background-color: white; /* Color de fondo de la parte trasera */ 
+  color: white; 
+  transform: rotateY(180deg); 
+  background-size: cover; /* Asegura que la imagen de fondo cubra completamente el contenedor */ 
+  background-position: center; /* Centra la imagen de fondo */ 
+  background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */ 
+  box-sizing: border-box;
+}
+
+.custom-font-size {
+  color: #000;
+  font-size: 0.8em;
+}
+
+.article-flip {
+  transform: rotateY(180deg);
 }
   
 
@@ -259,7 +314,7 @@ https://imgkub.com/images/2024/12/12/Banner_prithvi.jpg
   gap: 1rem; /* Espacio entre los elementos */
   padding: 1.25rem; /* Espaciado interno */
   flex-direction: column; /* Cambia a columna en pantallas pequeñas */
-  width: 80%;
+  width: 60%;
   margin: 0 auto; /* Centra el contenedor */
 }
 
@@ -297,13 +352,15 @@ https://imgkub.com/images/2024/12/12/Banner_prithvi.jpg
     border-radius: 8px; /* Bordes redondeados */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
     position: relative; /* Para posicionar los elementos internos */
+    background-size: cover; /* Ajusta la imagen para cubrir todo el área */
+    background-position: right; /* Centra la imagen */
 }
 
 /* Estilo para cada artículo */
 #calendar-timeline article {
     position: relative; /* Para posicionar el pseudo-elemento */
-    padding: 15px 20px; /* Espaciado interno */
-    margin: 2rem 4rem; /* Margen entre artículos */
+    padding: 4rem 1rem; /* Espaciado interno */
+    margin: 2rem 3rem; /* Margen entre artículos */
     border-radius: 8px; /* Bordes redondeados */
     background-size: cover; /* Ajusta la imagen para cubrir todo el área */
     background-position: right; /* Centra la imagen */
@@ -331,18 +388,19 @@ https://imgkub.com/images/2024/12/12/Banner_prithvi.jpg
 
 /* Estilo para el párrafo (nombre) */
 #calendar-timeline p {
-    font-size: 1rem; /* Tamaño de fuente normal */
+    font-size: 0.8rem; /* Tamaño de fuente normal */
     margin: 5px 0 0; /* Margen superior para separar del encabezado */
-    color: #7f8c8d; /* Color de texto más suave */
+    color: #000000; /* Color de texto más suave */
     flex: 1; /* Ocupa el espacio restante */
-    max-width: 100%
+    max-width: 100%;
+    justify-content: flex-end;
 }
 
 /* Icono de la línea de tiempo */
 #calendar-timeline article::before {
     content: '';
     position: absolute;
-    left: -20px; /* Posición del icono */
+    left: -30px; /* Posición del icono */
     top: 50%; /* Centra verticalmente */
     transform: translateY(-50%); /* Centra el icono */
     width: 20px; /* Ancho del icono */
@@ -439,13 +497,23 @@ https://imgkub.com/images/2024/12/12/Banner_prithvi.jpg
 
     footer { 
       padding: 20px 0; /* Aumentamos el espaciado interno en pantallas pequeñas */ 
+      justify-content: center;
+      align-items: center;
     }
 
-    footer p { font-size: 0.5em; /* Disminuimos el tamaño de la fuente en pantallas pequeñas */ 
+    footer p { 
+      font-size: 0.5em; /* Disminuimos el tamaño de la fuente en pantallas pequeñas */ 
+
     }
 
     h1 {
       font-size: 1em;
     }
+    
+    .custom-font-size {
+      color: #000;
+      font-size: 0.6em;
+    }
+    
 }
 

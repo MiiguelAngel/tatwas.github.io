@@ -32,66 +32,92 @@ async function initializeTatwas() {
         tatwaTimes.push(`${formattedHour}:${formattedMinute}`);
     }
 
+
     const scheduleList = document.getElementById("calendar-timeline");
     scheduleList.innerHTML = '';  // Limpiar la lista antes de agregar nuevos elementos
 
     // Asegúrate de que se muestren todos los Tatwas
     const totalTatwas = tatwas.length;
 
-    // Obtener la hora actual 
-    const now = new Date(); 
-    const currentHour = now.getHours(); 
+    // Obtener la hora actual
+    const now = new Date();
+    const currentHour = now.getHours();
     const currentMinute = now.getMinutes();
 
     tatwaTimes.forEach((time, index) => {
         const [hour, minute] = time.split(':').map(Number);
-    // Solo agregar el artículo si la hora del Tatwa es mayor a la hora actual 
-    if (hour > currentHour-1) {
+        // Solo agregar el artículo si la hora del Tatwa es mayor a la hora actual
+        if (hour > currentHour - 1) {
 
-        // Obtener el Tatwa correspondiente para la hora actual
-        const tatwaForTime = tatwas[index % totalTatwas];  // Usar el índice para acceder al Tatwa correspondiente
-        // Crear el artículo con <h2> (para la hora) y <p> (para el nombre del evento)
-        const article = document.createElement('article');
+            // Obtener el Tatwa correspondiente para la hora actual
+            const tatwaForTime = tatwas[index % totalTatwas];  // Usar el índice para acceder al Tatwa correspondiente
 
-        // Crear el <h2> para la hora
-        const title = document.createElement('h2');
-        title.textContent = time;  // Asignar la hora correspondiente
+            // Crear el artículo con <div class="article-inner">
+            const article = document.createElement('article');
+            const articleInner = document.createElement('div');
+            articleInner.classList.add('article-inner');
 
-        // Crear el <p> para la descripción del evento (nombre del Tatwa)
-        const description = document.createElement('p');
-        // Usar innerHTML para insertar HTML dinámicamente
-        description.innerHTML = `<span id="tatwa-name-text" style="color: ${tatwaForTime.color_hex}; font-size: 50px;">
-            ${tatwaForTime.name}    
-        </span>`;  // Asignar el nombre del Tatwa con el estilo dinámico
+            // Crear el <div> para la parte frontal del artículo
+            const front = document.createElement('div');
+            front.classList.add('article-front');
 
-        // Insertar <h2> y <p> en el artículo
-        article.appendChild(title);
-        article.appendChild(description);
+            // Crear el <h2> para la hora
+            const title = document.createElement('h2');
+            title.textContent = time;  // Asignar la hora correspondiente
+
+            // Crear el <p> para la descripción del evento (nombre del Tatwa)
+            const description = document.createElement('p');
+            description.innerHTML = `<span id="tatwa-name-text" style="color: ${tatwaForTime.color_hex}; font-size: 50px;">
+                ${tatwaForTime.name}    
+            </span>`;  // Asignar el nombre del Tatwa con el estilo dinámico
+
+            // Insertar <h2> y <p> en la parte frontal
+            front.appendChild(title);
+            front.appendChild(description);
+
+            // Crear el <div> para la parte trasera del artículo
+            const back = document.createElement('div');
+            back.classList.add('article-back');
+            back.innerHTML = `<span id="tatwa-name-text" class="custom-font-size" style="color: ${tatwaForTime.color_hex}; ">
+                ${tatwaForTime.name} : ${tatwaForTime.description} 
+            </span>:`; // Aquí va la descripción del Tatwa
+
+            // Insertar las partes frontal y trasera en article-inner
+            articleInner.appendChild(front);
+            articleInner.appendChild(back);
+
+            // Insertar article-inner en el artículo
+            article.appendChild(articleInner);
 
             // Asignar clase de fondo basado en el Tatwa
-        switch (tatwaForTime.name) {
-            case "Akash":
-            article.classList.add("bg-akash");
-            break;
-            case "Vayu":
-            article.classList.add("bg-vayu");
-            break;
-            case "Tejas":
-                article.classList.add("bg-tejas");
-            break;
-            case "Apas":
-                article.classList.add("bg-apas");
-            break;
-            case "Prithvi":
-                article.classList.add("bg-prithvi");
-            break;
-            // Otros casos para diferentes Tatwas
-        }
+            switch (tatwaForTime.name) {
+                case "Akash":
+                    article.classList.add("bg-akash");
+                    break;
+                case "Vayu":
+                    article.classList.add("bg-vayu");
+                    break;
+                case "Tejas":
+                    article.classList.add("bg-tejas");
+                    break;
+                case "Apas":
+                    article.classList.add("bg-apas");
+                    break;
+                case "Prithvi":
+                    article.classList.add("bg-prithvi");
+                    break;
+                // Otros casos para diferentes Tatwas
+            }
 
-        // Agregar el artículo al contenedor del calendario
-        scheduleList.appendChild(article);  
-    }
-});
+            // Agregar el evento de clic para la animación de rotación
+            article.addEventListener('click', () => {
+                articleInner.classList.toggle('article-flip');
+            });
+
+            // Agregar el artículo al contenedor del calendario
+            scheduleList.appendChild(article);  
+        }
+    });
 
     console.log(scheduleList);
 }
@@ -228,19 +254,31 @@ async function displayCurrentTatwa() {
     // Aplicar la clase de fondo al sliderContent 
     sliderContent.className = backgroundClass; 
     
-    sliderContent.innerHTML = `
-        <span style="font-size: 2rem; font-style: italic; color: white;">
-        Tatwa regente en este momento: ${tatwaNameHTML} 
-        </span>
-        <br> 
-            <span style="font-size: 1.5rem; font-style: italic; color: white;">
-                Horario: ${startFormatted} - ${endFormatted}
-            </span>`;
+    sliderContent.innerHTML = `${tatwaNameHTML}`;
     }
-    // Verifica si el elemento tatwa-description existe antes de intentar modificarlo
+    
+
+    // Verifica si el elemento slider title existe antes de intentar modificarlo
     const tatwaDescriptionElement = document.getElementById("tatwa-description");
     if (tatwaDescriptionElement) {
         tatwaDescriptionElement.innerText = currentTatwa.description;
+    }
+    
+    // Verifica si el elemento tatwa-description existe antes de intentar modificarlo
+    const tatwaSliderTitle = document.getElementById("slider-title");
+    if (tatwaSliderTitle) {
+        tatwaSliderTitle.innerHTML = `
+        <span style="font-style: italic; color: black;">
+        Tatwa regente en este momento
+        </span>`;
+    }
+
+    // Verifica si el elemento tatwa-description existe antes de intentar modificarlo
+    const tatwaSliderHour = document.getElementById("slider-hour");
+    if (tatwaSliderHour) {
+        tatwaSliderHour.innerHTML = `<span style=" font-style: italic; color: black;">
+        Horario: ${startFormatted} - ${endFormatted}
+    </span>`;
     }
 
     // Verifica si el elemento tatwa-color existe antes de intentar modificarlo
@@ -334,14 +372,24 @@ async function displayNextTatwa() {
     // Aplicar la clase de fondo al sliderContent 
     sliderContent.className = backgroundClass; 
 
-    sliderContent.innerHTML = `
-    <span style="font-size: 2rem; font-style: italic; color: white;">
-    Siguiente Tatwa regente: ${tatwaNameHTML} 
-    </span>
-    <br> 
-        <span style="font-size: 1.5rem; font-style: italic; color: white;">
-            Horario: ${startFormatted} - ${endFormatted}
+    sliderContent.innerHTML = ` ${tatwaNameHTML}`;
+
+    // Verifica si el elemento tatwa-description existe antes de intentar modificarlo
+    const tatwaSliderTitle = document.getElementById("slider-title");
+    if (tatwaSliderTitle) {
+        tatwaSliderTitle.innerHTML = `
+        <span style="font-style: italic; color: black;">
+        Tatwa regente en este momento
         </span>`;
+    }
+
+    // Verifica si el elemento tatwa-description existe antes de intentar modificarlo
+    const tatwaSliderHour = document.getElementById("slider-hour");
+    if (tatwaSliderHour) {
+        tatwaSliderHour.innerHTML = `<span style=" font-style: italic; color: black;">
+        Horario: ${startFormatted} - ${endFormatted}
+    </span>`;
+    }
 
     // Mostrar la descripción del Tatwa actual
     document.getElementById("tatwa-description").innerText = currentTatwa.description;

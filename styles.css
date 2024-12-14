@@ -275,17 +275,18 @@ tbody tr:hover {
   justify-content: space-between;
   gap: 1.25rem;
   margin-top: 1.25rem;
+  flex-direction: column;
 }
 
 /* Estilos para Acciones y Siguiente Tatwa */
 .tatwa-actions,
 .next-tatwa {
   flex: 1; /* Ambos ocupan el 50% del ancho del contenedor */
-  max-width: calc(50% - 10px); /* Ajusta considerando el gap */
   background-color: #fff;
   padding: 1.25rem;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: fit-content;
 }
 
 .tatwa-actions h3,
@@ -317,30 +318,40 @@ https://imgkub.com/images/2024/12/12/Banner_prithvi.jpg
   background-image: url("https://imgkub.com/images/2024/12/12/Banner_akash.jpg");
   background-size: cover;
   background-position: right;
+  padding: 1.1rem;
+  margin: 0.5rem;
 }
 
 .bg-vayu {
   background-image: url("https://imgkub.com/images/2024/12/12/Banner_vayu.jpg");
   background-size: cover;
   background-position: right;
+  padding: 1.1rem;
+  margin: 0.5rem;
 }
 
 .bg-tejas {
   background-image: url("https://imgkub.com/images/2024/12/12/Banner_agni.jpg");
   background-size: cover;
   background-position: right;
+  padding: 1.1rem;
+  margin: 0.5rem;
 }
 
 .bg-apas {
   background-image: url("https://imgkub.com/images/2024/12/12/Banner_jala.jpg");
   background-size: cover;
   background-position: right;
+  padding: 1.1rem;
+  margin: 0.5rem;
 }
 
 .bg-prithvi {
   background-image: url("https://imgkub.com/images/2024/12/12/Banner_prithvi.jpg");
   background-size: cover;
   background-position: right;
+  padding: 1.1rem;
+  margin: 0.5rem;
 }
 
 
@@ -466,6 +477,8 @@ https://imgkub.com/images/2024/12/12/Banner_prithvi.jpg
   overflow-y: auto; /* Hacer scroll si el contenido es largo */
   text-align: center; /* Alinear el texto a la izquierda */
   font-size: 30px;
+  display: flex;
+  justify-content: flex-start;
 }
 
 h2 {
@@ -474,10 +487,14 @@ h2 {
   color: #333; /* Color de texto oscuro */
 }
 
+#slider-title{
+  font-size: 2em;
+}
+
 /* Estilo para las flechas */
 .slider-arrows {
   position: absolute;
-  top: 10%; /* Colocamos las flechas en el tercio superior */
+  top: 13%; /* Colocamos las flechas en el tercio superior */
   width: calc(98%); /* Ajuste del ancho para dejar espacio para las flechas */
   display: flex;
   justify-content: space-between;
@@ -849,6 +866,8 @@ h2 {
 
     footer { 
       padding: 20px 0; /* Aumentamos el espaciado interno en pantallas pequeñas */ 
+      align-items: center;
+      justify-content: center;
     }
 
     footer p { font-size: 0.5em; /* Disminuimos el tamaño de la fuente en pantallas pequeñas */ 
